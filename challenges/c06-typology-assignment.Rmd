@@ -1,0 +1,256 @@
+---
+title: "County Typology"
+author: "(Your name here)"
+date: 2020-
+output:
+  github_document:
+    toc: true
+---
+
+*Purpose*: In this challenge, you'll learn how to navigate the U.S. Census Bureau website, programmatically download data from the internet, and perform a county-level analysis. This will give you a base on which we'll build for Project 1.
+
+<!-- include-rubric -->
+# Grading Rubric
+<!-- -------------------------------------------------- -->
+
+Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on an individual and team basis.
+
+## Individual
+<!-- ------------------------- -->
+
+| Category | Needs Improvement | Satisfactory |
+|----------|----------------|--------------|
+| Effort | Some task __q__'s left unattempted | All task __q__'s attempted |
+| Observed | Did not document observations, or observations incorrect | Documented correct observations based on analysis |
+| Supported | Some observations not clearly supported by analysis | All observations clearly supported by analysis (table, graph, etc.) |
+| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and (in)conclusiveness of the support |
+| Code Styled | Violations of the [style guide](https://style.tidyverse.org/) hinder readability | Code sufficiently close to the [style guide](https://style.tidyverse.org/) |
+
+## Team
+<!-- ------------------------- -->
+
+| Category | Needs Improvement | Satisfactory |
+|----------|----------------|--------------|
+| Documented | No team contributions to Wiki | Team contributed observations to Wiki |
+| Referenced | No team references in Wiki | At least one reference in Wiki to member report(s) |
+| Relevant | References unrelated to observations, or difficult to find related analysis based on reference text | Reference text clearly points to relevant analysis with active hyperlinks |
+
+## Due Date
+<!-- ------------------------- -->
+
+All the deliverables stated in the rubrics above are due **at midnight** before the day of the class discussion of the challenge. See the [Syllabus](https://docs.google.com/document/d/1jJTh2DH8nVJd2eyMMoyNGroReo0BKcJrz1eONi3rPSc/edit?usp=sharing) for more information.
+
+```{r setup}
+library(tidyverse)
+
+```
+
+*Background*: The USDA publishes [county typology codes](https://www.ers.usda.gov/data-products/county-typology-codes.aspx) to classify US counties to provide policy-relevant data. We will study their 2015 data in this challenge.
+
+# The Big Picture
+<!-- -------------------------------------------------- -->
+
+We're about to go through *a lot* of weird steps, so let's first fix the big picture firmly in mind:
+
+We want to study US counties in terms population and USDA typology. These data come from different sources, so we'll need to clean and join two datasets together.
+
+That's the high-level view; now let's dig into the details.
+
+# Get the Data
+<!-- -------------------------------------------------- -->
+
+1. County-level population estimates (Census Bureau)
+2. County-level typology codes
+
+## Navigating the Census Bureau
+<!-- ------------------------- -->
+
+**Steps**: Our objective is to find the 2018 American Community Survey[1] (ACS) Total Population estimates, disaggregated by counties. To check your results, this is Table `B01003`.
+
+1. Go to [data.census.gov](data.census.gov).
+2. Scroll down and click `View Tables`.
+3. Apply filters to find the ACS **Total Population** estimates, disaggregated by counties. I used the filters:
+  - `Topics > Populations and People > Counts, Estimates, and Projections > Population Total`
+  - `Geography > County > All counties in United States`
+5. Select the **Total Population** table and click the `Download` button to download the data; make sure to select the 2018 5-year estimates.
+6. Unzip and move the data to your `challenges/data` folder.
+  - Note that the data will have a crazy-long filename `ACSDT5Y2018.B01003_data_with_overlays_2020-07-26T094857.csv`. That's because metadata is stored in the filename, such as the year of the estimate (`Y2018`) and my access date (`2020-06-30`). **Your filename will vary based on when you download the data**, so make sure to copy the filename that corresponds to what you downloaded!
+
+__q1__ Load Table `B01003` into the following tibble. Make sure the column names are `id, Geographic Area Name, Estimate!!Total, Margin of Error!!Total`.
+
+*Hint*: You will need to use the `skip` keyword when loading these data!
+
+```{r q1-task}
+## TASK: Load the census bureau data with the following tibble name.
+df_pop <- NA
+```
+
+*Note*: You can find information on 1-year, 3-year, and 5-year estimates [here](https://www.census.gov/programs-surveys/acs/guidance/estimates.html). The punchline is that 5-year estimates are more reliable but less current.
+
+## Automated Download of USDA Typology Data 
+<!-- ------------------------- -->
+
+__q2__ Head to the [USDA Typology](https://www.ers.usda.gov/data-products/county-typology-codes.aspx) site and copy the link for `ERS County Typology Codes, 2015 Edition (in CSV format)`. Paste that link as a string below, and assign it to `url_counties`.
+
+```{r q2-task}
+## TASK: Find the URL for the NYT covid-19 county-level data
+url_counties <- NA_character_
+```
+
+Once you have the url, the following code will download a local copy of the data, then load the data into R.
+
+```{r download}
+## NOTE: No need to change this; just execute
+## Set the filename of the data to download
+filename_usda <- "./data/usda_codes.csv"
+
+## Download the data locally
+curl::curl_download(
+        url_counties,
+        destfile = filename_usda
+      )
+
+## Loads the downloaded csv
+df_usda <- 
+  read_csv(
+    filename_usda,
+    col_types = cols(
+      FIPStxt = col_character(),
+      State = col_character(),
+      County_name = col_character(),
+      `Metro-nonmetro status, 2013 0=Nonmetro 1=Metro` = col_logical(),
+      `Economic Types Type_2015_Update non-overlapping` = col_double(),
+      Economic_Type_Label = col_character(),
+      Farming_2015_Update = col_double(),
+      `Mining_2015-Update` = col_double(),
+      Manufacturing_2015_Update = col_double(),
+      Government_2015_Update = col_double(),
+      Recreation_2015_Update = col_double(),
+      Nonspecialized_2015_Update = col_double(),
+      Low_Education_2015_Update = col_double(),
+      Low_Employment_Cnty_2008_2012_25_64 = col_double(),
+      Pop_Loss_2010 = col_double(),
+      Retirement_Dest_2015_Update = col_double(),
+      Persistent_Poverty_2013 = col_double(),
+      Persistent_Related_Child_Poverty_2013 = col_double()
+    )
+  ) %>% 
+  ## Fix the FIPS code
+  mutate(
+    fips = if_else(str_length(FIPStxt) == 4, str_c("0", FIPStxt), FIPStxt)
+  ) %>% 
+  select(-FIPStxt) %>% 
+  select(fips, everything())
+```
+
+You can now re-run the chunk above (or the entire notebook) to pull the most recent version of the data. The USDA data are not changing over time, but you can re-use this for data sources that are updating.
+
+*Note*: You should feel free to copy-paste the code above for your own future projects!
+
+# Join the Data
+<!-- -------------------------------------------------- -->
+
+To get a sense of our task, let's take a glimpse at our two data sources.
+
+```{r glimpse}
+## NOTE: No need to change this; just execute
+df_pop %>% glimpse
+df_usda %>% glimpse
+```
+
+To join these datasets, we'll need to use [FIPS county codes](https://en.wikipedia.org/wiki/FIPS_county_code).[2] The last `5` digits of the `id` column in `df_pop` is the FIPS county code, while the NYT data `df_covid` already contains the `fips`.
+
+__q3__ Process the `id` column of `df_pop` to create a `fips` column.
+
+```{r q3-task}
+## TASK: Create a `fips` column by extracting the county code
+df_q3 <- NA
+```
+
+Use the following test to check your answer.
+
+```{r q3-tests}
+## NOTE: No need to change this
+## Check known county
+assertthat::assert_that(
+              (df_q3 %>%
+              filter(str_detect(`Geographic Area Name`, "Autauga County")) %>%
+              pull(fips)) == "01001"
+            )
+print("Very good!")
+```
+
+Once you've extracted the county fips code, you can join the datasets.
+
+__q4__ Join `df_usda` with `df_q3` by the `fips` column. Use the proper type of join to preserve all rows in `df_usda`.
+
+```{r q4-task}
+## TASK: Join df_usda and df_q3 by fips.
+df_q4 <- NA
+```
+
+For convenience, I create some more convenient column names.
+
+```{r rename}
+## NOTE: No need to change; run this to produce a more convenient tibble
+df_data <-
+  df_q4 %>%
+  select(
+    state = State,
+    county = County_name,
+    fips,
+    type = Economic_Type_Label,
+    metro = `Metro-nonmetro status, 2013 0=Nonmetro 1=Metro`,
+    population = `Estimate!!Total`,
+    everything()
+  )
+
+df_data
+```
+
+# Analyze
+<!-- -------------------------------------------------- -->
+
+Now that we've done the hard work of loading and wrangling the data, we can finally start our analysis. First you'll go through a couple guided-EDA questions, then you'll be free to pose and answer your own questions.
+
+__q5__ Visualize the distribution of county population for metro and non-metro areas. Answer the questions under *observations* below.
+
+```{r q5-task}
+## TODO: Visualize by freqpoly the population of metro and non-metro counties
+```
+
+**Observations**:
+
+- Are there more metro or non-metro counties?
+- Which---metro or non-metro---tend to be larger in population?
+- How much overlap is there in population between the two categories?
+
+__q6__ Inspect the next plot and document your observations.
+
+```{r q6-task}
+## NOTE: No need to edit; inspect and document your observations
+df_data %>% 
+  
+  ggplot(aes(fct_reorder(type, population), population)) +
+  geom_boxplot(notch = TRUE) +
+  
+  coord_flip() +
+  scale_y_log10() +
+  labs(x = "County Type", y = "County Population")
+```
+
+**Observations**:
+
+- What county types tend to be smaller (in population)?
+- What county types tend to be larger (in population)?
+
+__q7__ Drive your own ship: You've just put together a very rich dataset; you now get to explore! Pick your own direction and generate at least one punchline figure to document an interesting finding. I give a couple tips & ideas below:
+
+### Ideas
+<!-- ------------------------- -->
+
+- Study some of the other variables, e.g. the education, unemployment, or poverty indicators.
+- Look for outliers, e.g. particularly large or small counties of a given type.
+- Do a websearch on outlier counties to learn more.
+- Do a deep-dive on counties that are important to you (e.g. where you or your family live).
+- Your own idea!

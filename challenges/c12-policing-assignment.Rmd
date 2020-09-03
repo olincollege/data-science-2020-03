@@ -1,0 +1,68 @@
+---
+title: ""
+author: ""
+date:
+output:
+  github_document
+---
+
+Source: [Stanford Open Policing Project](https://openpolicing.stanford.edu/data/), Massachusetts State Patrol data.
+
+```{r setup}
+library(tidyverse)
+
+```
+
+# Setup
+
+__q1__ Go to the [Stanford Open Policing Project](https://openpolicing.stanford.edu/data/) page and download the Massachusetts State Police records in `Rds` format. Move the data to your `data` folder and match the `filename` to load the data.
+
+*Note*: An `Rds` file is an R-specific file format. The function `readRDS` will read these files.
+
+```{r q1-task}
+## TODO: Download the data, move to your data folder, and load it
+filename <- NA_character_
+df_data <- readRDS(filename)
+```
+
+
+# EDA
+<!-- -------------------------------------------------- -->
+
+```{r }
+df_data %>% glimpse()
+```
+
+```{r }
+df_data %>% count(subject_race)
+```
+
+```{r }
+df_data %>% count(arrest_made)
+```
+
+## Vis
+<!-- ------------------------- -->
+
+```{r }
+df_data %>%
+  group_by(subject_race) %>%
+  summarize(arrest_rate = mean(arrest_made, na.rm = TRUE)) %>%
+
+  ggplot(aes(subject_race, arrest_rate)) +
+  geom_col()
+```
+
+# Modeling
+<!-- -------------------------------------------------- -->
+
+```{r }
+fit <-
+  glm(
+    formula = arrest_made ~ subject_age + subject_race + subject_sex,
+    data = df_data %>% filter(!is.na(arrest_made)),
+    family = "binomial"
+  )
+
+summary(fit)
+```
