@@ -67,17 +67,11 @@ will send you a link to this repository):
 
   - *Note*: I recommend creating a `Git` directory on your computer in
     an easy-to-find location (say Home or Documents), and that you put
-    `username-2020-03` there.
+    `username-2020-03` there. (*Note*: My repo name is a little
+    different in the image below; the important part is that it matches
+    your `username` and ends in `git`.)
 
 ![Clone](./images/rep01-clone-cli.png)
-
-  - Change Directory to `exercises` with the command `cd exercises`
-
-![Terminal](./images/rep01-cd.png)
-
-  - Run the command `make` to create the `assignment` files
-
-![Terminal](./images/rep01-make.png)
 
   - Great job\! Now you have all the assignment exercises for the
     course\!
