@@ -15,6 +15,8 @@ reading: 10
 
 *Topics*: version control, git setup, working with our exercises, ssh keys
 
+*Note*: If you're reading this file in RStudio, you can Shift + Click (CMD + Click) to follow a link.
+
 # Windows-specific Instructions
 <!-- -------------------------------------------------- -->
 
@@ -30,17 +32,17 @@ Before you can "clone" (download) the repository of exercises, you'll need to se
 # Downloading Our Exercises
 <!-- -------------------------------------------------- -->
 
-Using RStudio, we will download a local copy of the [data-science-curriculum](https://github.com/zdelrosario/data-science-curriculum). Follow these instructions:
+Using RStudio, we will download a local copy of your assigned repo (I will send you a link to this repository):
 
-- Open [data-science-curriculum](https://github.com/zdelrosario/data-science-curriculum) in your browser, and click the "Clone" button. Make sure you have "SSH" selected, and click the "clipboard" button to copy the `git@github:...` url.
+- Open your assigned repo, and click the "Clone" button. This should be of the form `username-2020-03`; for instance, mine would be `zdelrosario-2020-03`. Make sure you have "SSH" selected, and click the "clipboard" button to copy the `git@github:...` url.
 
 - Open the `Terminal` tab
 
 ![Terminal](./images/rep01-terminal.png)
 
-- Use the change directory (`cd`) command to change to where you want to copy `data-science-curriculum`, and use the `git clone` command to copy the repository.
+- Use the change directory (`cd`) command to change to where you want to copy `username-2020-03`, and use the `git clone` command to copy the repository.
 
-- *Note*: I recommend creating a `Git` directory on your computer in an easy-to-find location (say Home or Documents), and that you put `data-science-curriculum` there.
+- *Note*: I recommend creating a `Git` directory on your computer in an easy-to-find location (say Home or Documents), and that you put `username-2020-03` there.
 
 ![Clone](./images/rep01-clone-cli.png)
 
