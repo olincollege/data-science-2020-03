@@ -16,11 +16,14 @@ Download [RStudio
 Desktop](https://rstudio.com/products/rstudio/download/) and install the
 [R programming language](https://cran.rstudio.com/). Both are free\!
 
-Once installed, you can follow `e-rep01-intro-git` and *clone* the
-repository, then open the source for this exercise under
-`exercises/d00-e-setup00-install-assignment.Rmd`. This is an `R
-Markdown` file, which is a combination of human-readable text and
+*Aside*: Once installed, you can follow the [Git
+Clone](https://github.com/olincollege/data-science-2020-03/blob/master/exercises/d00-e-rep01-intro-git-assignment.md)
+instructions to *clone* the repository, then open the source for this
+exercise under `exercises/d00-e-setup00-install-assignment.Rmd`. This is
+an `R Markdown` file, which is a combination of human-readable text and
 machine-readable code. Think of it as a modern take on a lab notebook.
+This is not necessary right now, but soon you’ll start working in `.Rmd`
+files.
 
 **q2** Install packages
 
