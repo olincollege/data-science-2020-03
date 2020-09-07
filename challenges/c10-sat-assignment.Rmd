@@ -10,7 +10,8 @@ output:
 *Purpose*: How do we apply hypothesis testing to investigating data? In this challenge you'll practice using hypothesis testing tools to make sense of a dataset.
 
 *Reading*:
-- [Harvard Study Says SATs Should Be Optional: Here's Why](https://www.csmonitor.com/USA/USA-Update/2016/0120/Harvard-study-says-SATs-should-be-optional.-Here-s-why) (Optional)
+- [Harvard Study Says SATs Should Be Optional: Here's Why](https://www.csmonitor.com/USA/USA-Update/2016/0120/Harvard-study-says-SATs-should-be-optional.-Here-s-why) (Optional); easy-to-read news article on colleges going SAT-free
+- [Norm-Referenced Tests and Race-Blind Admissions](https://cshe.berkeley.edu/publications/norm-referenced-tests-and-race-blind-admissions-case-eliminating-sat-and-act-university) (Optional); technical report on relationship between the SAT/ACT and non-academic factors
 
 *Credit*: This is based on a [case study](http://onlinestatbook.com/2/case_studies/sat.html) originally prepared by Emily Zitek, with data collected through the research of Thomas MacFarland.
 
