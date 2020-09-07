@@ -7,11 +7,7 @@ time: 60
 reading: 0
 ---
 
-*Purpose*: Git and GitHub are extremely useful for collaboration, but they take
-some getting used to. In this *partner exercise*, you will learn how to
-contribute to a partner's work, and how to merge contributions to your own work.
-This will be your first taste of using Git not just as a way to track changes,
-but also as a powerful collaboration tool.
+*Purpose*: Git and GitHub are extremely useful for collaboration, but they take some getting used to. In this *partner exercise*, you will learn how to contribute to a partner's work, and how to merge contributions to your own work. This will be your first taste of using Git not just as a way to track changes, but also as a powerful collaboration tool.
 
 *Reading*: [GitHub Forking](https://gist.github.com/Chaser324/ce0505fbed06b947d962) (Optional / Reference)
 
@@ -33,7 +29,7 @@ In this case you'll make *trivial edits* to the **TODO** items below, but in pra
 
 *Note*: All instructions below are coded for either the *Forking* partner, the *Merging* partner, or *Both*. Note that you will both do all of these steps, but you will take turns being *Forking* and *Merging*. Pay attention to when these flags change---that indicates where you and your partner need to take different actions.
 
-__q1__ (*Both*) Pick a partner in the class, preferably from your learning team. You must mutually agree to complete this exercise together, which will involve *forking* your partner's public repo and making a *pull request*.
+__q1__ (*Both*) Pick a partner in the class, preferably from your learning team. You must mutually agree to complete this exercise together, which will involve *forking* your partner's public repo and making a *pull request*. Copy this file `d14-e-rep05-collab-assignment.Rmd` into the repo you made (in `e-rep02-create`).
 
 # Forking Partner
 ---

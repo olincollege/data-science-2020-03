@@ -7,7 +7,7 @@ time: 5
 reading: 10
 ---
 
-*Purpose*: In this class you'll turn in all your work using GitHub. To do this, you'll need to create a repository. This short exercise will walk you through doing this.
+*Purpose*: In this class we'll make heavy use of GitHub. I already created a repository for you to submit your assignments. In this exercise you'll learn how to create your own repository. You're free to use this to share work with your teammates, and you'll use it again in `rep05-collab` to practice collaborating with others on GitHub.
 
 *Reading*: Follow all the steps in [Creating a Repository](https://swcarpentry.github.io/git-novice/03-create/index.html). *Hint*: You can `Ctrl + Click` (`CMD + Click`) to follow links in RStudio.
 
