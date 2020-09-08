@@ -39,7 +39,7 @@ Unlike exercises, **challenges will be graded**. The following rubrics define ho
 ## Due Date
 <!-- ------------------------- -->
 
-All the deliverables stated in the rubrics above are due on the day of the class discussion of that exercise. See the [Syllabus](https://docs.google.com/document/d/1jJTh2DH8nVJd2eyMMoyNGroReo0BKcJrz1eONi3rPSc/edit?usp=sharing) for more information.
+All the deliverables stated in the rubrics above are due on the day of the class discussion of that exercise. See the [Syllabus](https://drive.google.com/file/d/15XBfRsGHdPokHUTbuBUzsSgqo0JCbUOB/view?usp=sharing) for more information.
 
 ```{r setup}
 library(tidyverse)
@@ -78,7 +78,7 @@ __q2__ Create a visualization showing variables `carat`, `price`, and `cut` simu
 # Communication
 <!-- -------------------------------------------------- -->
 
-In this next stage, you will render your data exploration, push it to GitHub to share with others, and link your observations within our [Data Science Wiki](https://olin-data-science.fandom.com/wiki/Olin_Data_Science_Wiki).
+In this next stage, you will render your data exploration and push it to GitHub to complete your report.
 
 __q3__ *Knit* your document in order to create a report.
 
@@ -96,11 +96,7 @@ You will need to stage both the `.md` file, as well as the `_files` folder. Note
 
 ![Terminal](./images/c00-staged.png)
 
-__q5__ *Document* your findings in our [Wiki](https://olin-data-science.fandom.com/wiki/Olin_Data_Science_Wiki). Work with your learning team to come to consensus on your findings.
+# Challenge Summary
+<!-- -------------------------------------------------- -->
 
-The [Datasets](https://olin-data-science.fandom.com/wiki/Datasets) page contains lists all the datasets we've analyzed together.
-
-__q6__ *Prepare* to present your team's findings!
-
-__q7__ Add a link to your personal data-science repository on the [Repositories](https://olin-data-science.fandom.com/wiki/Repositories) page. Make sure to file it under your team name!
-
+When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!

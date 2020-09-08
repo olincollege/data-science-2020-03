@@ -87,7 +87,7 @@ df_pop <- NA
 
 *Note*: You can find information on 1-year, 3-year, and 5-year estimates [here](https://www.census.gov/programs-surveys/acs/guidance/estimates.html). The punchline is that 5-year estimates are more reliable but less current.
 
-## Automated Download of USDA Typology Data 
+## Automated Download of USDA Typology Data
 <!-- ------------------------- -->
 
 __q2__ Head to the [USDA Typology](https://www.ers.usda.gov/data-products/county-typology-codes.aspx) site and copy the link for `ERS County Typology Codes, 2015 Edition (in CSV format)`. Paste that link as a string below, and assign it to `url_counties`.
@@ -111,7 +111,7 @@ curl::curl_download(
       )
 
 ## Loads the downloaded csv
-df_usda <- 
+df_usda <-
   read_csv(
     filename_usda,
     col_types = cols(
@@ -134,12 +134,12 @@ df_usda <-
       Persistent_Poverty_2013 = col_double(),
       Persistent_Related_Child_Poverty_2013 = col_double()
     )
-  ) %>% 
+  ) %>%
   ## Fix the FIPS code
   mutate(
     fips = if_else(str_length(FIPStxt) == 4, str_c("0", FIPStxt), FIPStxt)
-  ) %>% 
-  select(-FIPStxt) %>% 
+  ) %>%
+  select(-FIPStxt) %>%
   select(fips, everything())
 ```
 
@@ -229,11 +229,11 @@ __q6__ Inspect the next plot and document your observations.
 
 ```{r q6-task}
 ## NOTE: No need to edit; inspect and document your observations
-df_data %>% 
-  
+df_data %>%
+
   ggplot(aes(fct_reorder(type, population), population)) +
   geom_boxplot(notch = TRUE) +
-  
+
   coord_flip() +
   scale_y_log10() +
   labs(x = "County Type", y = "County Population")
@@ -254,3 +254,8 @@ __q7__ Drive your own ship: You've just put together a very rich dataset; you no
 - Do a websearch on outlier counties to learn more.
 - Do a deep-dive on counties that are important to you (e.g. where you or your family live).
 - Your own idea!
+
+# Challenge Summary
+<!-- -------------------------------------------------- -->
+
+When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!

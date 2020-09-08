@@ -261,6 +261,11 @@ __q8__ Using the results from all previous q's, answer the following questions.
 - Between `both_SAT` and `high_GPA`, which single variable would you choose to predict `univ_GPA`? Why?
 - Is `both_SAT` an effective predictor of `high_GPA`? What specific pieces of evidence do you have in favor of `both_SAT` being effective? What specific pieces of evidence do you have against?
 
+# Challenge Summary
+<!-- -------------------------------------------------- -->
+
+When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!
+
 # End Notes
 <!-- ----------------------------------------------------------------------- -->
 

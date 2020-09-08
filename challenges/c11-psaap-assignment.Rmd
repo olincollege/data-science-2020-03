@@ -142,16 +142,16 @@ __q3__ The following code chunk fits a few different models. Compute a measure o
 
 ```{r q3-task}
 ## NOTE: No need to edit these models
-fit_baseline <- 
-  df_train %>% 
+fit_baseline <-
+  df_train %>%
   lm(formula = T_norm ~ x)
 
-fit_cheat <- 
-  df_train %>% 
+fit_cheat <-
+  df_train %>%
   lm(formula = T_norm ~ avg_T)
 
-fit_nonphysical <- 
-  df_train %>% 
+fit_nonphysical <-
+  df_train %>%
   lm(formula = T_norm ~ idx)
 
 ## TODO: Compute a measure of accuracy for each fit above;
@@ -259,16 +259,16 @@ __q5__ The following code will construct a predicted-vs-actual plot with your mo
 ##       and visualize the results on a predicted-vs-actual plot. It will
 ##       also compare against the simple `fit_simple` defined above.
 bind_rows(
-  df_validate %>% 
-    add_uncertainties(fit_simple, interval = "prediction", prefix = "pi") %>% 
-    select(T_norm, pi_lwr, pi_fit, pi_upr) %>% 
+  df_validate %>%
+    add_uncertainties(fit_simple, interval = "prediction", prefix = "pi") %>%
+    select(T_norm, pi_lwr, pi_fit, pi_upr) %>%
     mutate(model = "x only"),
-  df_validate %>% 
-    add_uncertainties(fit_q4, interval = "prediction", prefix = "pi") %>% 
-    select(T_norm, pi_lwr, pi_fit, pi_upr) %>% 
+  df_validate %>%
+    add_uncertainties(fit_q4, interval = "prediction", prefix = "pi") %>%
+    select(T_norm, pi_lwr, pi_fit, pi_upr) %>%
     mutate(model = "full"),
-) %>% 
-  
+) %>%
+
   ggplot(aes(T_norm, pi_fit)) +
   geom_abline(slope = 1, intercept = 0, color = "grey80", size = 2) +
   geom_errorbar(
@@ -276,7 +276,7 @@ bind_rows(
     width = 0
   ) +
   geom_point() +
-  
+
   facet_grid(~ model, labeller = label_both) +
   theme_minimal() +
   labs(
@@ -321,8 +321,8 @@ df_design <- tibble(x = 1, L = 0.2, W = 0.04, U_0 = 1.0)
 # NOTE: This is the level the "probability" level customer wants
 pr_level <- 0.8
 
-## TODO: Fit a model, assess the uncertainty in your prediction, 
-#        use the validation data to check your uncertainty estimates, and 
+## TODO: Fit a model, assess the uncertainty in your prediction,
+#        use the validation data to check your uncertainty estimates, and
 #        make a recommendation on a *dependable range* of values for T_norm
 #        at the point `df_design`
 fit_q6 <- NA
@@ -339,6 +339,12 @@ fit_q6 <- NA
 
 *Bonus*: One way you could take this analysis further is to recommend which other variables the design team should tightly control. You could do this by fixing values in `df_design` and adding them to the model. An exercise you could carry out would be to systematically test the variables to see which ones the design team should more tightly control.
 
+# Challenge Summary
+<!-- -------------------------------------------------- -->
+
+When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!
+
 # References
+<!-- -------------------------------------------------- -->
 
 - [1] Jofre, del Rosario, and Iaccarino "Data-driven dimensional analysis of heat transfer in irradiated particle-laden turbulent flow" (2020) *International Journal of Multiphase Flow*, https://doi.org/10.1016/j.ijmultiphaseflow.2019.103198
