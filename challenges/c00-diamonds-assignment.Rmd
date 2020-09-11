@@ -11,35 +11,40 @@ output:
 
 In this challenge, you will go through the process of exploring, documenting, and sharing an analysis of a dataset. We will use these skills again and again in each challenge.
 
-<!-- include-rubric -->
 # Grading Rubric
 <!-- -------------------------------------------------- -->
 
-Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on an individual and team basis.
+Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on the report and the summary.
 
-## Individual
+## Report
 <!-- ------------------------- -->
+
+The report is the knitted version of the **current document** (this Rmd).
 
 | Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
 | Effort | Some task __q__'s left unattempted | All task __q__'s attempted |
-| Observed | Did not document observations | Documented observations based on analysis |
-| Supported | Some observations not supported by analysis | All observations supported by analysis (table, graph, etc.) |
+| Observed | Did not document observations, or observations incorrect | Documented correct observations based on analysis |
+| Supported | Some observations not supported by analysis, or errors in analysis | All observations clearly and correctly supported by analysis (table, graph, etc.) |
+| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and the (in)conclusiveness of the Support|
 | Code Styled | Violations of the [style guide](https://style.tidyverse.org/) hinder readability | Code sufficiently close to the [style guide](https://style.tidyverse.org/) |
 
-## Team
+## Summary
 <!-- ------------------------- -->
+
+the summary is your survey response: the qualtrics link provided below
 
 | Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
-| Documented | No team contributions to Wiki | Team contributed to Wiki |
-| Referenced | No team references in Wiki | At least one reference in Wiki to member report(s) |
-| Relevant | References unrelated to assertion, or difficult to find related analysis based on reference text | Reference text clearly points to relevant analysis |
+| Effort | Survey not completed | Survey completed |
+| Context | Did not provide context for the findings | Provided adequate context for the findings |
+| Comparison | Did not make any kind of comparison | Drew a clear comparison between two or more cases |
+| Conclusion | Did not convey a conclusion, or conclusion unsupported by the context and comparison | Conveyed a conclusion that built upon the context and comparison |
 
 ## Due Date
 <!-- ------------------------- -->
 
-All the deliverables stated in the rubrics above are due on the day of the class discussion of that exercise. See the [Syllabus](https://drive.google.com/file/d/15XBfRsGHdPokHUTbuBUzsSgqo0JCbUOB/view?usp=sharing) for more information.
+All the deliverables stated in the rubrics above are due on the day of the class discussion of that exercise. See the [Syllabus](https://docs.google.com/document/d/1jJTh2DH8nVJd2eyMMoyNGroReo0BKcJrz1eONi3rPSc/edit?usp=sharing) for more information.
 
 ```{r setup}
 library(tidyverse)
@@ -78,7 +83,7 @@ __q2__ Create a visualization showing variables `carat`, `price`, and `cut` simu
 # Communication
 <!-- -------------------------------------------------- -->
 
-In this next stage, you will render your data exploration and push it to GitHub to complete your report.
+In this next stage, you will render your data exploration, push it to GitHub to share with others, and link your observations within our [Data Science Wiki](https://olin-data-science.fandom.com/wiki/Olin_Data_Science_Wiki).
 
 __q3__ *Knit* your document in order to create a report.
 
@@ -95,6 +100,14 @@ __q4__ *Push* your knitted document to GitHub.
 You will need to stage both the `.md` file, as well as the `_files` folder. Note that the `_files` folder, when staged, will expand to include all the files under that directory.
 
 ![Terminal](./images/c00-staged.png)
+
+__q5__ *Document* your findings in our [Wiki](https://olin-data-science.fandom.com/wiki/Olin_Data_Science_Wiki). Work with your learning team to come to consensus on your findings.
+
+The [Datasets](https://olin-data-science.fandom.com/wiki/Datasets) page contains lists all the datasets we've analyzed together.
+
+__q6__ *Prepare* to present your team's findings!
+
+__q7__ Add a link to your personal data-science repository on the [Repositories](https://olin-data-science.fandom.com/wiki/Repositories) page. Make sure to file it under your team name!
 
 # Challenge Summary
 <!-- -------------------------------------------------- -->

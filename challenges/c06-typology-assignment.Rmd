@@ -9,31 +9,35 @@ output:
 
 *Purpose*: In this challenge, you'll learn how to navigate the U.S. Census Bureau website, programmatically download data from the internet, and perform a county-level analysis. This will give you a base on which we'll build for Project 1.
 
-<!-- include-rubric -->
 # Grading Rubric
 <!-- -------------------------------------------------- -->
 
-Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on an individual and team basis.
+Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on the report and the summary.
 
-## Individual
+## Report
 <!-- ------------------------- -->
 
-| Category | Needs Improvement | Satisfactory |
+The report is the knitted version of the **current document** (this Rmd).
+
+| Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
 | Effort | Some task __q__'s left unattempted | All task __q__'s attempted |
 | Observed | Did not document observations, or observations incorrect | Documented correct observations based on analysis |
-| Supported | Some observations not clearly supported by analysis | All observations clearly supported by analysis (table, graph, etc.) |
-| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and (in)conclusiveness of the support |
+| Supported | Some observations not supported by analysis, or errors in analysis | All observations clearly and correctly supported by analysis (table, graph, etc.) |
+| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and the (in)conclusiveness of the Support|
 | Code Styled | Violations of the [style guide](https://style.tidyverse.org/) hinder readability | Code sufficiently close to the [style guide](https://style.tidyverse.org/) |
 
-## Team
+## Summary
 <!-- ------------------------- -->
 
-| Category | Needs Improvement | Satisfactory |
+the summary is your survey response: the qualtrics link provided below
+
+| Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
-| Documented | No team contributions to Wiki | Team contributed observations to Wiki |
-| Referenced | No team references in Wiki | At least one reference in Wiki to member report(s) |
-| Relevant | References unrelated to observations, or difficult to find related analysis based on reference text | Reference text clearly points to relevant analysis with active hyperlinks |
+| Effort | Survey not completed | Survey completed |
+| Context | Did not provide context for the findings | Provided adequate context for the findings |
+| Comparison | Did not make any kind of comparison | Drew a clear comparison between two or more cases |
+| Conclusion | Did not convey a conclusion, or conclusion unsupported by the context and comparison | Conveyed a conclusion that built upon the context and comparison |
 
 ## Due Date
 <!-- ------------------------- -->
@@ -246,6 +250,11 @@ df_data %>%
 
 __q7__ Drive your own ship: You've just put together a very rich dataset; you now get to explore! Pick your own direction and generate at least one punchline figure to document an interesting finding. I give a couple tips & ideas below:
 
+# Challenge Summary
+<!-- -------------------------------------------------- -->
+
+When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!
+
 ### Ideas
 <!-- ------------------------- -->
 
@@ -254,8 +263,3 @@ __q7__ Drive your own ship: You've just put together a very rich dataset; you no
 - Do a websearch on outlier counties to learn more.
 - Do a deep-dive on counties that are important to you (e.g. where you or your family live).
 - Your own idea!
-
-# Challenge Summary
-<!-- -------------------------------------------------- -->
-
-When you have completed this challenge, please write a summary about your findings and [submit it here](https://olin.qualtrics.com/jfe/form/SV_6sMhI2DEvNZBgXz). Remember that this summary is one of the graded components of the course!

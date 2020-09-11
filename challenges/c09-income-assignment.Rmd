@@ -7,37 +7,41 @@ output:
     toc: true
 ---
 
-*Purpose*: (Combine UQ ideas with studying real data)
+*Purpose*: We've been learning how to quantify uncertainty in estimates through the exercises; now its time to put those skills to use studying real data. In this challenge we'll use concepts like confidence intervals to help us make sense of census data.
 
 *Reading*:
 - [Using ACS Estimates and Margin of Error](https://www.census.gov/programs-surveys/acs/guidance/training-presentations/acs-moe.html) (Optional)
 - [Patterns and Causes of Uncertainty in the American Community Survey](https://www.sciencedirect.com/science/article/pii/S0143622813002518?casa_token=VddzQ1-spHMAAAAA:FTq92LXgiPVloJUVjnHs8Ma1HwvPigisAYtzfqaGbbRRwoknNq56Y2IzszmGgIGH4JAPzQN0) (Optional, particularly the *Uncertainty in surveys* section under the Introduction.)
 
-<!-- include-rubric -->
 # Grading Rubric
 <!-- -------------------------------------------------- -->
 
-Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on an individual and team basis.
+Unlike exercises, **challenges will be graded**. The following rubrics define how you will be graded, both on the report and the summary.
 
-## Individual
+## Report
 <!-- ------------------------- -->
 
-| Category | Needs Improvement | Satisfactory |
+The report is the knitted version of the **current document** (this Rmd).
+
+| Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
 | Effort | Some task __q__'s left unattempted | All task __q__'s attempted |
 | Observed | Did not document observations, or observations incorrect | Documented correct observations based on analysis |
-| Supported | Some observations not clearly supported by analysis | All observations clearly supported by analysis (table, graph, etc.) |
-| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and (in)conclusiveness of the support |
+| Supported | Some observations not supported by analysis, or errors in analysis | All observations clearly and correctly supported by analysis (table, graph, etc.) |
+| Assessed | Observations include claims not supported by the data, or reflect a level of certainty not warranted by the data | Observations are appropriately qualified by the quality & relevance of the data and the (in)conclusiveness of the Support|
 | Code Styled | Violations of the [style guide](https://style.tidyverse.org/) hinder readability | Code sufficiently close to the [style guide](https://style.tidyverse.org/) |
 
-## Team
+## Summary
 <!-- ------------------------- -->
 
-| Category | Needs Improvement | Satisfactory |
+the summary is your survey response: the qualtrics link provided below
+
+| Category | Unsatisfactory | Satisfactory |
 |----------|----------------|--------------|
-| Documented | No team contributions to Wiki | Team contributed observations to Wiki |
-| Referenced | No team references in Wiki | At least one reference in Wiki to member report(s) |
-| Relevant | References unrelated to observations, or difficult to find related analysis based on reference text | Reference text clearly points to relevant analysis with active hyperlinks |
+| Effort | Survey not completed | Survey completed |
+| Context | Did not provide context for the findings | Provided adequate context for the findings |
+| Comparison | Did not make any kind of comparison | Drew a clear comparison between two or more cases |
+| Conclusion | Did not convey a conclusion, or conclusion unsupported by the context and comparison | Conveyed a conclusion that built upon the context and comparison |
 
 ## Due Date
 <!-- ------------------------- -->
